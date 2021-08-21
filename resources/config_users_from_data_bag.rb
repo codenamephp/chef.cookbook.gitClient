@@ -12,7 +12,7 @@ action :manage do
       users_configs users_configs
     end
   rescue Net::HTTPServerException, Chef::Exceptions::InvalidDataBagPath
-    log "Databag '#{new_resource.data_bag_name}' with query '#{new_resource.data_bag_query}' was not found" do
+    log "Databag '#{new_resource.data_bag_name}' with query 'codenamephp_git_client_config:*' was not found" do
       level :debug
     end
   end
