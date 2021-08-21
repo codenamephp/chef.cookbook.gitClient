@@ -79,3 +79,27 @@ codenamephp_git_client_config_user 'Set configs for user' do
   user 'some user'
   configs lazy { { 'user.full_name' => 'Test User', 'user.email' => 'test@test.de' } }
 end
+```
+
+### config_users
+The `codenamephp_git_client_config_users` is used to configure multiple configs for multiple users at once. The configs are passed as a Hash with the username as key and another Hash with config name => config value pairs.
+Uses `codenamephp_git_client_config_user` internally.
+
+#### Actions
+- `:set`: Sets the given configs for the given users
+
+#### Properties
+- `users_configs`: A Hash with the username as key and another Hash with config name => config value pairs.
+
+#### Examples
+```ruby
+# Minimal properties
+codenamephp_git_client_config_users 'Config user' do
+  users_configs lazy {
+    {
+      'user1' => { :config1_user1 => 'value1_user1', 'config2_user1' => 'value2_user1' },
+      'user2' => { :config1_user2 => 'value1_user2', 'config2_user2' => 'value2_user2' },
+    }
+  }
+end
+```
