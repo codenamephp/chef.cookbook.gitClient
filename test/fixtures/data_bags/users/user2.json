@@ -1,0 +1,11 @@
+{
+  "id": "user2",
+  "codenamephp": {
+    "git_client": {
+      "config": {
+        "user.name": "User2",
+        "user.email": "user2@test.de"
+      }
+    }
+  }
+}

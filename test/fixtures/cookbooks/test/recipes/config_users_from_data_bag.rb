@@ -1,0 +1,1 @@
+codenamephp_git_client_config_users_from_data_bag 'Manage git users'

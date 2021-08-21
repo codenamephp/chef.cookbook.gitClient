@@ -11,5 +11,3 @@ issues_url 'https://github.com/codenamephp/chef.cookbook.gitClient/issues'
 source_url 'https://github.com/codenamephp/chef.cookbook.gitClient'
 
 supports 'debian'
-
-depends 'git', '~> 11.0'

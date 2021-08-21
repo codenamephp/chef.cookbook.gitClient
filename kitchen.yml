@@ -19,3 +19,40 @@ suites:
       inspec_tests:
         - test/smoke/default
     attributes:
+  - name: config
+    run_list:
+      - recipe[test::default]
+      - recipe[test::config]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+        - test/smoke/config
+    attributes:
+  - name: config_user
+    run_list:
+      - recipe[test::default]
+      - recipe[test::config_user]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+        - test/smoke/config
+    attributes:
+  - name: config_users
+    run_list:
+      - recipe[test::default]
+      - recipe[test::config_users]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+        - test/smoke/config
+    attributes:
+  - name: config_users_from_data_bag
+    data_bags_path: "test/fixtures/data_bags"
+    run_list:
+      - recipe[test::default]
+      - recipe[test::config_users_from_data_bag]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+        - test/smoke/config
+    attributes:
