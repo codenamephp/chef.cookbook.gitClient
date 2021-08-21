@@ -103,3 +103,40 @@ codenamephp_git_client_config_users 'Config user' do
   }
 end
 ```
+
+### config_users_from_data_bag
+The `config_users_from_data_bag` resource can be used to set git configurations from data bags. The configs have to be set in the user item. Example:
+
+```json
+{
+  "id": "user",
+  "codenamephp": {
+    "git_client": {
+      "config": {
+        "user.full_name": "Test User",
+        "user.email": "test@test.de"
+      }
+    }
+  }
+}
+```
+
+Only users that have a non-empty config set are used.
+
+#### Actions
+- `manage`: Manages the configs from the data bag
+
+#### Properties
+- `data_bag_name`: The name of the data bag to search for users, defaults to `users`
+
+#### Examples
+
+```ruby
+# Minimal properties
+codenamephp_git_client_config_users_from_data_bag 'Manage git users'
+
+# With custom data_bag_name
+codenamephp_git_client_config_users_from_data_bag 'Manage git users' do
+  data_bag_name 'some_data_bag'
+end
+```
