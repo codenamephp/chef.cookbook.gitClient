@@ -26,3 +26,22 @@ codenamephp_git_client_package 'Install git' do
   package_name 'some package'
 end
 ```
+
+### config_user
+The `codenamephp_git_config_user` is used to configure multiple values for a single user using a hash where the keys are the config keys and values the configs to be set for their keys.
+The configs are all set in the --global scope.
+
+#### Actions
+- `:set`: Sets the given configs for the given user
+
+#### Properties
+- `user`: The user to execute the command as and to set the configs for
+- `configs`: A hash with the config keys and their values
+
+#### Examples
+```ruby
+# Minimal properties
+codenamephp_git_client_config_user 'Set configs for user' do
+  user 'some user'
+  configs lazy { { 'user.full_name' => 'Test User', 'user.email' => 'test@test.de' } }
+end
