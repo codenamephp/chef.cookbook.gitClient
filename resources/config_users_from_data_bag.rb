@@ -4,7 +4,7 @@ property :data_bag_name, String, default: 'users', description: 'The databag to 
 
 action :manage do
   begin
-    users_configs = search(new_resource.data_bag_name, 'codenamephp_git_client_config:*')
+    users_configs = search(new_resource.data_bag_name, 'codenamephp_git_client_config*:*')
                     .to_h { |user| [user[:id], user.dig(:codenamephp, :git_client, :config) || {}] }
                     .select { |_, configs| !configs.nil? && !configs.empty? }
 

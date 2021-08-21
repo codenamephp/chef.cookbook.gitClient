@@ -38,4 +38,4 @@ jobs:
       - name: IntegrationTests
         env:
           KITCHEN_LOCAL_YAML: kitchen.dokken.yml
-        run: chef exec kitchen test
+        run: chef exec kitchen test -c 5

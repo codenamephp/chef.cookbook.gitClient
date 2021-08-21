@@ -23,7 +23,7 @@ describe 'codenamephp_git_client_config' do
 
     it 'sets the config' do
       expect(chef_run).to run_execute('git config --global user.full_name "Some User"').with(
-        cwd: '',
+        cwd: nil,
         user: 'someuser',
         environment: { 'USER' => 'someuser', 'HOME' => '/home/someuser' }
       )

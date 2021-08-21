@@ -4,7 +4,7 @@ property :key, String, name_property: true, description: 'The key of config to s
 property :value, String, description: 'The value to set for the key'
 property :user, String, description: 'The user to run the command as'
 property :scope, String, equal_to: %w(local global system), default: 'global', description: 'If the value should be set system wide, global for the user or the local repo'
-property :path, String, default: '', description: 'The path to exectue the config command in when setting values for a repo'
+property :path, [String, nil], description: 'The path to exectue the config command in when setting values for a repo'
 property :options, String, default: '', description: 'Additional options to add to the command, e.g. --add'
 
 action :set do

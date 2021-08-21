@@ -6,12 +6,12 @@ describe 'codenamephp_git_client_config_users_from_data_bag' do
   step_into :codenamephp_git_client_config_users_from_data_bag
 
   before(:example) do
-    stub_search('users', 'codenamephp_git_client_config:*').and_return([])
+    stub_search('users', 'codenamephp_git_client_config*:*').and_return([])
   end
 
   context 'Install with minimal properties' do
     before(:example) do
-      stub_search('users', 'codenamephp_git_client_config:*').and_return([
+      stub_search('users', 'codenamephp_git_client_config*:*').and_return([
         {
           'id' => 'user1',
           'codenamephp' => {
@@ -63,7 +63,7 @@ describe 'codenamephp_git_client_config_users_from_data_bag' do
     end
 
     it 'does nothing when databag was not found' do
-      stub_search('users', 'codenamephp_git_client_config:*').and_raise(Chef::Exceptions::InvalidDataBagPath)
+      stub_search('users', 'codenamephp_git_client_config*:*').and_raise(Chef::Exceptions::InvalidDataBagPath)
 
       expect(chef_run).to_not set_codenamephp_git_client_config_users('Config users from databag')
     end
