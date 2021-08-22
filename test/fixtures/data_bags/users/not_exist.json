@@ -1,0 +1,11 @@
+{
+  "id": "not-exist",
+  "codenamephp": {
+    "git_client": {
+      "config": {
+        "user.name": "egal",
+        "user.email": "egal@test.de"
+      }
+    }
+  }
+}

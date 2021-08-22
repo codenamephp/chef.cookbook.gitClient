@@ -24,7 +24,9 @@ describe 'codenamephp_git_client_config_users_from_data_bag' do
           'id' => 'user2',
           'codenamephp' => {
             'git_client' => {
-              'config' => {},
+              'config' => {
+                'config' => { 'user2_config1' => 'user2_value1', 'user2_config2' => 'user2_value2' },
+              },
             },
           },
         },
@@ -43,6 +45,14 @@ describe 'codenamephp_git_client_config_users_from_data_bag' do
           },
         },
       ])
+    end
+
+    stubs_for_provider('codenamephp_git_client_config_users_from_data_bag[Manage git users]') do |provider|
+      allow(provider).to receive_shell_out()
+      allow(provider).to receive_shell_out('getent passwd user1', exitstatus: 0)
+      allow(provider).to receive_shell_out('getent passwd user2', exitstatus: 1)
+      allow(provider).to receive_shell_out('getent passwd user3', exitstatus: 0)
+      allow(provider).to receive_shell_out('getent passwd user4', exitstatus: 0)
     end
 
     recipe do
