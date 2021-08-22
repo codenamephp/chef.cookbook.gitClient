@@ -6,7 +6,7 @@ action :manage do
   begin
     users_configs = search(new_resource.data_bag_name, 'codenamephp_git_client_config*:*')
                     .to_h { |user| [user[:id], user.dig(:codenamephp, :git_client, :config) || {}] }
-                    .select { |_, configs| !configs.nil? && !configs.empty? }
+                    .select { |username, configs| !configs.nil? && !configs.empty? && !shell_out("getent passwd #{username}").error? }
 
     codenamephp_git_client_config_users 'Config users from databag' do
       users_configs users_configs
