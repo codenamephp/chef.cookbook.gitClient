@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/codenamephp/chef.cookbook.gitClient/tree/1.1.0) (2021-08-22)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.gitClient/compare/1.0.0...1.1.0)
+
+**Implemented enhancements:**
+
+- Check if user exists for data bag [\#3](https://github.com/codenamephp/chef.cookbook.gitClient/pull/3) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [1.0.0](https://github.com/codenamephp/chef.cookbook.gitClient/tree/1.0.0) (2021-08-21)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.gitClient/compare/24fa20cfaa7dd71dc034ab6de7ea7507f79d8477...1.0.0)
